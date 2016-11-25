@@ -3,7 +3,7 @@ function userConstructor(name) {
         name: name,
         gameResults: new Array(),
 
-        totalWins: function() {
+        getTotalWins: function() {
             var total = 0;
             for(var i = 0; i < this.gameResults.length; i++) {
                 if (this.gameResults[i] == "win") {
@@ -13,7 +13,7 @@ function userConstructor(name) {
             return total;
         },
 
-        totalLoses: function() {
+        getTotalLoses: function() {
             var total = 0;
             for(var i = 0; i < this.gameResults.length; i++) {
                 if (this.gameResults[i] == "lose") {
@@ -23,7 +23,7 @@ function userConstructor(name) {
             return total;
         },
 
-        totalTies: function() {
+        getTotalTies: function() {
             var total = 0;
             for(var i = 0; i < this.gameResults.length; i++) {
                 if (this.gameResults[i] == "tie") {
