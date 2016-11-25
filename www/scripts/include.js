@@ -9,6 +9,7 @@ var addScriptModule = (function () {
     //============================
     // ==== Add scripts here =====
     //============================
+    addScript("jquery-3.1.1.min.js");
     addScript("user.js");
 
     //============================
