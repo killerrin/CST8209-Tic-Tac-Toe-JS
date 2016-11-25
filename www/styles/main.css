@@ -76,7 +76,7 @@ a::visited {
     width: 500px;
     text-align: center;
     margin: 0 auto;
-    background: darkslategrey;
+    background: rgba(71, 92, 99, 1.0);
 
     overflow: hidden;
 }
@@ -103,7 +103,7 @@ a::visited {
 }
 
 #welcomeMessage-2 #userEntryForm {
-    background: rgba(71, 92, 99, 0.6);
+    background: darkslategrey;
     padding: 20px;
  }
 
@@ -132,25 +132,29 @@ a::visited {
 /* ======================================================== */
 
 .musicControls {
-    margin-top: 50px;
-    margin-left: -40px;
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
 }
 
 .musicPlayer {
     text-align: center;
     width: 500px;
-    margin-left: 40px;
+    padding: 0;
 }
 
 .musicPlaylist {
     width: 500px;
     margin: 0 auto;
+    margin-top:-3px;
+    padding: 0;
+
     text-align: center;
     list-style: none;
 }
 
 .musicPlaylist li {
-    background: rgba(71, 92, 99, 1.0)
+    background: rgba(71, 92, 99, 1.0);
+    padding: 5px;
 }
 
 .musicPlaylist li.active {
