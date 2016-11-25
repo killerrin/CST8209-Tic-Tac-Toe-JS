@@ -13,11 +13,26 @@
             <h1>Tic Tac Toe</h1>
         </header>
         <main class="mainContent">
-            <div id="welcomeMessage">
-                <h2>Welcome to Tic Tac Toe!</h2>
-                <button>Play Game</button>
+            <div id="welcomeMessage" class="gameBox">
+                <div id="welcomeMessage-1">
+                    <h2>Welcome to Tic Tac Toe!</h2>
+                    <button id="welcomeMessage-1-PlayButton">Play Game</button>
+                </div>
+                <div id="welcomeMessage-2">
+                    <form name=userEntryForm id="userEntryForm">
+                        <label for="user1Name">Player 1</label>
+                        <input id="user1Name" name="user1Name" type="text" placeholder="Username">
+                        
+                        <label for="user2Name">Player 2</label>
+                        <input id="user2Name" name="user2Name" type="text" placeholder="Username">
+
+                        <button id="submitNames" name="submitNames">Lets Play!</button>
+                    </form>
+                </div>
             </div>
-            <div id="ticTacToeBoard"></div>
+            <div id="ticTacToeBoard" class="gameBox">
+                <h2>Game Board</h2>                
+            </div>
 
             <div class="musicControls">
                 <audio class="musicPlayer" preload="auto" controls="" autoplay loop>
