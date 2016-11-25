@@ -12,6 +12,7 @@ var addScriptModule = (function () {
     addScript("user.js");
     addScript("musicPlaylist.js");
     addScript("welcomeMessage.js");
+    addScript("ticTacToeBoard.js");
 
     //============================
     return {
