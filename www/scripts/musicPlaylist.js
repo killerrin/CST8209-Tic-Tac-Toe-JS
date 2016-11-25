@@ -18,6 +18,9 @@ $(document).ready(function () {
             changeSong: function(songUrl) {
                 this.loadSong(songUrl);
                 this.playSong();
+            },
+            changeVolume: function(volume) {
+                musicPlayer[0].volume = volume;
             }
         };
     }());
