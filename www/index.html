@@ -10,21 +10,40 @@
 <body>
     <div class="site-wrapper">
         <header class="siteHeader">
-            <h1>Tic Tac Toe ... EXTREME</h1>
+            <h1>Tic Tac Toe</h1>
         </header>
         <main class="mainContent">
-
             <div id="welcomeMessage">
-                <h2>Welcome to Tic Tac Toe ... EXTREME!</h2>
-                <p>Want to play?</p>
+                <h2>Welcome to Tic Tac Toe!</h2>
+                <button>Play Game</button>
             </div>
             <div id="ticTacToeBoard"></div>
 
+            <div class="musicControls">
+                <audio class="musicPlayer" preload="auto" controls="" autoplay loop>
+                    <source src="media/music/Zero_to_Scream.mp3" type="audio/mp3">
+                    Your browser does not support the audio element.
+                </audio>
+                <ul class="musicPlaylist">
+                    <li class="active">
+                        <a href="#" data-value="media/music/Zero_to_Scream.mp3">
+                            TeknoAXE - Zero to Scream
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-value="media/music/Odyssey_Stratosphere.mp3">
+                            TeknoAXE - Odyssey Stratosphere
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </main>
         <footer class="siteFooter">
-            <p>&copy; Andrew Godfroy - 040868114</p>
+            <p>&copy; Andrew Godfroy - 040868114 </p>
         </footer>
     </div>
+
+    <script src="scripts/jquery-3.1.1.min.js"></script>
     <script src="scripts/include.js"></script>
 </body>
 

@@ -1,3 +1,4 @@
+/* Override Defaults */
 html, body {
     background: black;
     color: white;
@@ -7,6 +8,17 @@ html, body {
     height: 100%;
 }
 
+a {
+    text-decoration: none;
+    color: white;
+}
+
+a::visited {
+    text-decoration: none;
+    color: white;
+}
+
+/* Main Styles */
 .site-wrapper {
     min-height: 100%;
     position: relative;
@@ -43,4 +55,32 @@ html, body {
     background: rgb(23%, 33.5%, 23%);
 
     text-align: center;
+}
+
+/* Music Controls */
+.musicControls {
+    margin-top: 50px;
+    margin-left: -40px;
+}
+
+.musicPlayer {
+    text-align: center;
+    width: 20%;
+    margin-left: 40px;
+}
+
+.musicPlaylist {
+    width: 20%;
+    margin: 0 auto;
+    text-align: center;
+
+    list-style: none;
+}
+
+.musicPlaylist li {
+    background: rgba(71,92,99, 1.0)
+}
+
+.musicPlaylist li.active {
+    background: rgba(71,92,99, 0.6)
 }
