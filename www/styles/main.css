@@ -1,8 +1,9 @@
 /* Override Defaults */
-html, body {
+
+html,
+body {
     background: black;
     color: white;
-    
     margin: 0;
     padding: 0;
     height: 100%;
@@ -18,22 +19,27 @@ a::visited {
     color: white;
 }
 
+
+/* ======================================================== */
+
+
 /* Main Styles */
+
+
+/* ======================================================== */
+
 .site-wrapper {
     min-height: 100%;
     position: relative;
-
     margin: 0;
     padding: 0;
 }
 
-.siteHeader {  
+.siteHeader {
     width: 100%;
     height: 100px;
     background: rgb(23%, 33.5%, 23%);
-
     margin-top: -20px;
-
     text-align: center;
     vertical-align: middle;
     line-height: 100px;
@@ -43,7 +49,6 @@ a::visited {
     width: 100%;
     padding-top: 50px;
     padding-bottom: 50px;
-
     text-align: center;
 }
 
@@ -53,11 +58,79 @@ a::visited {
     width: 100%;
     height: 50px;
     background: rgb(23%, 33.5%, 23%);
-
     text-align: center;
 }
 
+
+/* ======================================================== */
+
+
+/* Game */
+
+
+/* ======================================================== */
+
+.gameBox {
+    box-sizing: border-box;
+    height: 500px;
+    width: 500px;
+    text-align: center;
+    margin: 0 auto;
+    background: darkslategrey;
+
+    overflow: hidden;
+}
+
+
+/* Welcome Message */
+#welcomeMessage {
+    display: block;
+    opacity: 1.0;
+    filter: alpha(opacity=1);
+}
+
+#welcomeMessage-1 {
+    padding-top: 200px;
+}
+
+#welcomeMessage-2 {
+    display: none;
+    opacity: 0.0;
+    filter: alpha(opacity=0);
+
+    padding-top: 60px;
+    text-align: center;    
+}
+
+#welcomeMessage-2 #userEntryForm {
+    background: rgba(71, 92, 99, 0.6);
+    padding: 20px;
+ }
+
+#welcomeMessage-2 input[type=text] {
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+#welcomeMessage-2 button {
+    display: block;
+    margin: 0 auto;
+}
+
+/* Game Board */
+#ticTacToeBoard {
+    display: none;
+}
+
+/* ======================================================== */
+
+
 /* Music Controls */
+
+
+/* ======================================================== */
+
 .musicControls {
     margin-top: 50px;
     margin-left: -40px;
@@ -65,22 +138,21 @@ a::visited {
 
 .musicPlayer {
     text-align: center;
-    width: 20%;
+    width: 500px;
     margin-left: 40px;
 }
 
 .musicPlaylist {
-    width: 20%;
+    width: 500px;
     margin: 0 auto;
     text-align: center;
-
     list-style: none;
 }
 
 .musicPlaylist li {
-    background: rgba(71,92,99, 1.0)
+    background: rgba(71, 92, 99, 1.0)
 }
 
 .musicPlaylist li.active {
-    background: rgba(71,92,99, 0.6)
+    background: rgba(71, 92, 99, 0.6)
 }

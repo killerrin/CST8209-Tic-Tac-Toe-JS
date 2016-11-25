@@ -11,6 +11,7 @@ var addScriptModule = (function () {
     //============================
     addScript("user.js");
     addScript("musicPlaylist.js");
+    addScript("welcomeMessage.js");
 
     //============================
     return {
