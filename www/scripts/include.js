@@ -9,8 +9,8 @@ var addScriptModule = (function () {
     //============================
     // ==== Add scripts here =====
     //============================
-    addScript("user.js");
     addScript("musicPlaylist.js");
+    addScript("user.js");
     addScript("welcomeMessage.js");
     addScript("ticTacToeBoard.js");
 

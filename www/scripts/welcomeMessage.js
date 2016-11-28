@@ -10,15 +10,20 @@ $(document).ready(function () {
         }, "slow");
 
         // Fade in the Input Fields
-        $("#welcomeMessage-2").fadeTo("slow", 1, function () {
-
-        });
+        $("#welcomeMessage-2").fadeTo("slow", 1, function () {});
     });
 
     $("#welcomeMessage-2-PlayButton").click(function (e) {
-        // Hide the welcome message, and jump into the game
-        $("#welcomeMessage").css({"display" : "none"});
-        $("#ticTacToeBoard").css({"display" : "block"});
+        // Hide the WelcomeMessage, and jump into the TicTacToeBoard
+        $("#welcomeMessageContainer").css({
+            "display": "none"
+        });
+        $("#gameBoardContainer").css({
+            "display": "block"
+        });
+
+        // Finally, init the game
+        gameManager.initGame();
 
         e.preventDefault();
     });

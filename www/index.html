@@ -13,7 +13,7 @@
             <h1>Tic Tac Toe</h1>
         </header>
         <main class="mainContent">
-            <div id="welcomeMessage" class="gameBox">
+            <div id="welcomeMessageContainer" class="gameBox">
                 <div id="welcomeMessage-1">
                     <h2>Welcome to Tic Tac Toe!</h2>
                     <button id="welcomeMessage-1-PlayButton">Play Game</button>
@@ -30,8 +30,17 @@
                     </form>
                 </div>
             </div>
-            <div id="ticTacToeBoard" class="gameBox">
-                <h2>Game Board</h2>                
+            <div id="gameBoardContainer" class="gameBox">
+                <div id="gameBoard-header">
+                    <h2 id="gameBoard-header-currentTurn"></h2>
+                    <h3 id="gameBoard-header-winner"></h2>
+                </div>
+                <div id="gameBoard-tableContainer">
+
+                </div>
+                <div id="gameBoard-resultsContainer">
+
+                </div>
             </div>
 
             <div class="musicControls">
@@ -59,7 +68,14 @@
     </div>
 
     <script src="scripts/jquery-3.1.1.min.js"></script>
-    <script src="scripts/include.js"></script>
+    <script src="scripts/musicPlaylist.js"></script>
+    <script src="scripts/user.js"></script>
+    <script src="scripts/welcomeMessage.js"></script>
+    <script src="scripts/ticTacToeBoard.js"></script>
+    
+    <!--Attempt at creating an Include Library 
+        ...Ultimately provied too many bugs to continue with -->
+    <!--<script src="scripts/include.js"></script>-->
 </body>
 
 </html>
