@@ -107,10 +107,16 @@ a::visited {
     padding: 20px;
  }
 
-#welcomeMessage-2 input[type=text] {
+.userEntryForm-InputGroup {
     display: block;
     margin: 0 auto;
     margin-bottom: 20px;
+}
+label { 
+    margin: 0 8px;
+}
+input {
+    margin-left: -5px;
 }
 
 #welcomeMessage-2 button {

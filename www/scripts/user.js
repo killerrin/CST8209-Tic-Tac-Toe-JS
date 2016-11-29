@@ -1,6 +1,7 @@
-function userConstructor(name) {
+function userConstructor(name, isAI) {
     return {
         name: name,
+        isAI: isAI, 
         wentFirst: false,
 
         gameResults: new Array(),

@@ -20,10 +20,18 @@
                 </div>
                 <div id="welcomeMessage-2">
                     <form name=userEntryForm id="userEntryForm">
-                        <label for="user1Name">Player 1</label>
-                        <input id="user1Name" name="user1Name" type="text" placeholder="Username">
-                        <label for="user2Name">Player 2</label>
-                        <input id="user2Name" name="user2Name" type="text" placeholder="Username">
+                        <div class="userEntryForm-InputGroup">
+                            <label for="user1Name">Player 1</label>
+                            <input id="user1Name" name="user1Name" type="text" placeholder="Username">
+                            <label for="user1AI">AI</label>
+                            <input id="user1AI" name="user1AI" type="checkbox">
+                        </div>
+                        <div class="userEntryForm-InputGroup">
+                            <label for="user2Name">Player 2</label>
+                            <input id="user2Name" name="user2Name" type="text" placeholder="Username">
+                            <label for="user2AI">AI</label>
+                            <input id="user2AI" name="user1AI" type="checkbox">
+                        </div>
                         <button id="welcomeMessage-2-PlayButton" name="welcomeMessage-2-PlayButton">Lets Play!</button>
                     </form>
                 </div>
@@ -31,7 +39,7 @@
             <div id="gameBoardContainer" class="gameBox">
                 <div id="gameBoard-header">
                     <h2 id="gameBoard-header-currentTurn"></h2>
-                    <h3 id="gameBoard-header-winner"></h3>
+                    <h2 id="gameBoard-header-turnNumber"></h2>
                 </div>
                 <div id="gameBoard-tableContainer">
                 </div>

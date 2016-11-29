@@ -6,8 +6,8 @@ $(document).ready(function () {
         var users = null;
         var getUserInfo = function () {
             users = new Array();
-            users.push(userConstructor($("#user1Name").val()));
-            users.push(userConstructor($("#user2Name").val()));
+            users.push(userConstructor($("#user1Name").val(), $("#user1AI").is(':checked')));
+            users.push(userConstructor($("#user2Name").val(), $("#user2AI").is(':checked')));
         };
 
         var gameBoard = null;
@@ -50,6 +50,10 @@ $(document).ready(function () {
                         var $this = $(this);
                         var parent = $this.parent()
 
+                        if (gameManager.getCurrentPlayer().isAI) {
+                            return;
+                        }
+
                         if (gameManager.selectSquare(parseInt(parent.attr("column")), parseInt(parent.attr("row")))) {
                             gameManager.nextRound();
                         } else {
@@ -60,17 +64,34 @@ $(document).ready(function () {
             }
         };
 
+        var winnerText = "";
         var roundNumber = 0;
         var playerTurn = false;
         var getFirstPlayer = function () {
             var randomUserIndex = Math.floor((Math.random() * 2));
             users[randomUserIndex].wentFirst = true;
-        }
+        };
+
+        var simulateAI = function() {
+            // Delay the AI 500ms to allow viewing of the screen
+            setTimeout(function() {
+                while(true) {
+                    var randomColumn = Math.floor((Math.random() * 3));
+                    var randomRow = Math.floor((Math.random() * 3));
+
+                    if (gameManager.selectSquare(randomColumn, randomRow)) {
+                        gameManager.nextRound();
+                        break;
+                    }
+                }
+            }, 500);
+        };
 
         return {
             initGame: function () {
                 roundNumber = 0;
                 playerTurn = false;
+                winnerText = "";
 
                 if (users == null) {
                     getUserInfo();
@@ -81,9 +102,6 @@ $(document).ready(function () {
                 for (var i = 0; i < users.length; i++) {
                     users[i].wentFirst = false;
                 }
-
-                // Fix the DOM 
-                $("#gameBoard-header-winner").empty();
 
                 // Generate the Game Board
                 generateGameBoard();
@@ -108,10 +126,13 @@ $(document).ready(function () {
                 gameBoard = null;
                 roundNumber = 0;
                 playerTurn = false;
+                winnerText = "";
 
                 // Clear the Input
                 $("#user1Name").val("");
+                $("#user1AI").prop('checked', false);
                 $("#user2Name").val("");
+                $("#user2AI").prop('checked', false);
 
                 // Reset the WelcomeMessage back to default
                 $("#welcomeMessage-2").fadeTo(0, 0, function () {});
@@ -157,7 +178,8 @@ $(document).ready(function () {
 
                 // Create the Headers and Table
                 $(document.createElement("h2")).text("Results").appendTo("#gameBoard-results-1");
-                $(document.createElement("h3")).text("Total Games Played: " + users[0].getTotalGamesPlayed()).appendTo("#gameBoard-results-1");
+                $(document.createElement("h3")).text(winnerText).appendTo("#gameBoard-results-1");
+                $(document.createElement("h4")).text("Total Games Played: " + users[0].getTotalGamesPlayed()).appendTo("#gameBoard-results-1");
                 var table = $(document.createElement("table")).attr({
                     id: "gameBoard-results-1-table"
                 }).appendTo("#gameBoard-results-1");
@@ -196,13 +218,13 @@ $(document).ready(function () {
                     if (state == "tie") {
                         for (var i = 0; i < users.length; i++) {
                             users[i].recordTie();
-                            $("#gameBoard-header-winner").text("Tie");
+                            winnerText = "Tie";
                         }
                     } else {
                         for (var i = 0; i < users.length; i++) {
                             if (users[i].wentFirst == state) {
                                 users[i].recordWin();
-                                $("#gameBoard-header-winner").text(users[i].name + " Wins!");
+                                winnerText = users[i].name + " Wins!";
                             } else {
                                 users[i].recordLoss();
                             }
@@ -219,6 +241,12 @@ $(document).ready(function () {
 
                 // Update the Text
                 $("#gameBoard-header-currentTurn").text(this.getCurrentPlayer().name + "'s Turn");
+                $("#gameBoard-header-turnNumber").text("Turn " + roundNumber);
+
+                // Check AI
+                if (this.getCurrentPlayer().isAI) {
+                    simulateAI();
+                }
             },
 
             checkGameState: function () {
