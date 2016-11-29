@@ -52,6 +52,8 @@ $(document).ready(function () {
 
                         if (gameManager.selectSquare(parseInt(parent.attr("column")), parseInt(parent.attr("row")))) {
                             gameManager.nextRound();
+                        } else {
+                            alert("That is an invalid move");
                         }
                     });
                 }
@@ -80,7 +82,22 @@ $(document).ready(function () {
                     users[i].wentFirst = false;
                 }
 
+                // Fix the DOM 
+                $("#gameBoard-header-winner").empty();
+
+                // Generate the Game Board
                 generateGameBoard();
+
+                // Swap out the Menu Blocks
+                $("#gameBoard-header").css({
+                    "display": "block"
+                });
+                $("#gameBoard-tableContainer").css({
+                    "display": "block"
+                });
+                $("#gameBoard-resultsContainer").css({
+                    "display": "none"
+                });
 
                 // Call nextRound to begin the game
                 this.nextRound();
@@ -105,15 +122,65 @@ $(document).ready(function () {
 
                 // Swap out the Menu Blocks
                 $("#welcomeMessageContainer").css({
-                    "display": "none"
+                    "display": "block"
                 });
                 $("#gameBoardContainer").css({
+                    "display": "none"
+                });
+
+                // Game Board Menu Blocks
+                $("#gameBoard-header").css({
                     "display": "block"
+                });
+                $("#gameBoard-tableContainer").css({
+                    "display": "block"
+                });
+                $("#gameBoard-resultsContainer").css({
+                    "display": "none"
                 });
             },
 
             displayResults: function () {
+                // Swap out the Menu Blocks
+                $("#gameBoard-header").css({
+                    "display": "none"
+                });
+                $("#gameBoard-tableContainer").css({
+                    "display": "none"
+                });
+                $("#gameBoard-resultsContainer").css({
+                    "display": "block"
+                });
 
+                // Empty out the previous results 
+                $("#gameBoard-results-1").empty();
+
+                // Create the Headers and Table
+                $(document.createElement("h2")).text("Results").appendTo("#gameBoard-results-1");
+                $(document.createElement("h3")).text("Total Games Played: " + users[0].getTotalGamesPlayed()).appendTo("#gameBoard-results-1");
+                var table = $(document.createElement("table")).attr({
+                    id: "gameBoard-results-1-table"
+                }).appendTo("#gameBoard-results-1");
+
+                var thead = $(document.createElement("thead")).appendTo(table)
+                var tr = $(document.createElement("tr")).appendTo(thead);
+                $(document.createElement("th")).text("Name").appendTo(tr);
+                $(document.createElement("th")).text("Wins").appendTo(tr);
+                $(document.createElement("th")).text("Loses").appendTo(tr);
+                $(document.createElement("th")).text("Ties").appendTo(tr);
+
+                var tableBody = $(document.createElement("tbody")).attr({
+                    id: "gameBoard-results-1-table-body"
+                }).appendTo(table);
+
+                // Create the new Table Rows
+                for (var i = 0; i < users.length; i++) {
+                    var row = $(document.createElement("tr")).appendTo(tableBody);
+                    $(document.createElement("td")).text(users[i].name).appendTo(row);
+                    $(document.createElement("td")).text(users[i].getTotalWins()).appendTo(row);
+                    $(document.createElement("td")).text(users[i].getTotalLoses()).appendTo(row);
+                    $(document.createElement("td")).text(users[i].getTotalTies()).appendTo(row);
+                }
             },
 
             nextRound: function () {
@@ -229,4 +296,14 @@ $(document).ready(function () {
             }
         };
     }());
+
+    $("#gameBoard-results-2-replayGame").on("click", function (e) {
+        gameManager.initGame();
+        e.preventDefault();
+    });
+
+    $("#gameBoard-results-2-resetGame").on("click", function (e) {
+        gameManager.resetGame();
+        e.preventDefault();
+    });
 });

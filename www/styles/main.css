@@ -144,12 +144,30 @@ a::visited {
     background: darkslateblue;
 
     text-align: center;
+    margin: 2px;
     padding-top: 10px;
     font-size: 4em;
 }
 
 #gameBoard-table tr td a:hover {
     background: darkred;
+}
+
+#gameBoard-resultsContainer {
+    display: none;
+    text-align: center;
+}
+#gameBoard-results-1 {
+    text-align: center;
+    margin: 0 auto;
+}
+#gameBoard-results-1-table {
+    text-align: center;
+    margin: 0 auto;    
+}
+#gameBoard-results-2 {
+    margin-top: 5px;
+    text-align: center;
 }
 
 /* ======================================================== */

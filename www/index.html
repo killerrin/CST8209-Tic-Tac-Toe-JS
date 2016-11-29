@@ -22,10 +22,8 @@
                     <form name=userEntryForm id="userEntryForm">
                         <label for="user1Name">Player 1</label>
                         <input id="user1Name" name="user1Name" type="text" placeholder="Username">
-                        
                         <label for="user2Name">Player 2</label>
                         <input id="user2Name" name="user2Name" type="text" placeholder="Username">
-
                         <button id="welcomeMessage-2-PlayButton" name="welcomeMessage-2-PlayButton">Lets Play!</button>
                     </form>
                 </div>
@@ -33,20 +31,22 @@
             <div id="gameBoardContainer" class="gameBox">
                 <div id="gameBoard-header">
                     <h2 id="gameBoard-header-currentTurn"></h2>
-                    <h3 id="gameBoard-header-winner"></h2>
+                    <h3 id="gameBoard-header-winner"></h3>
                 </div>
                 <div id="gameBoard-tableContainer">
-
                 </div>
                 <div id="gameBoard-resultsContainer">
-
+                    <div id="gameBoard-results-1">
+                    </div>
+                    <div id="gameBoard-results-2">
+                        <button id="gameBoard-results-2-replayGame">Replay Game</button>
+                        <button id="gameBoard-results-2-resetGame">Reset Game</button>
+                    </div>
                 </div>
             </div>
-
             <div class="musicControls">
                 <audio class="musicPlayer" preload="auto" controls="" autoplay loop>
-                    <source src="media/music/Zero_to_Scream.mp3" type="audio/mp3">
-                    Your browser does not support the audio element.
+                    <source src="media/music/Zero_to_Scream.mp3" type="audio/mp3"> Your browser does not support the audio element.
                 </audio>
                 <ul class="musicPlaylist">
                     <li class="active">
@@ -66,13 +66,11 @@
             <p>&copy; Andrew Godfroy - 040868114 </p>
         </footer>
     </div>
-
     <script src="scripts/jquery-3.1.1.min.js"></script>
     <script src="scripts/musicPlaylist.js"></script>
     <script src="scripts/user.js"></script>
     <script src="scripts/welcomeMessage.js"></script>
     <script src="scripts/ticTacToeBoard.js"></script>
-    
     <!--Attempt at creating an Include Library 
         ...Ultimately provied too many bugs to continue with -->
     <!--<script src="scripts/include.js"></script>-->

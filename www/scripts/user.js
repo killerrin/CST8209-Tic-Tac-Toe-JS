@@ -17,6 +17,9 @@ function userConstructor(name) {
         },
 
         /* Total Helper Functions */
+        getTotalGamesPlayed: function () {
+            return this.gameResults.length;
+        },
         getTotalWins: function () {
             var total = 0;
             for (var i = 0; i < this.gameResults.length; i++) {
