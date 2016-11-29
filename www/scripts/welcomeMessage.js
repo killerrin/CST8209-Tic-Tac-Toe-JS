@@ -14,6 +14,21 @@ $(document).ready(function () {
     });
 
     $("#welcomeMessage-2-PlayButton").click(function (e) {
+        // Perform Validation
+        var validationError = false;
+        if ($("#user1Name").val() == "" || $("#user2Name").val() == "") {
+            alert("Both players must have a name");
+            validationError = true;
+        } else if ($("#user1Name").val() == $("#user2Name").val()) {
+            alert("Player Names can not be the same");
+            validationError = true;
+        }
+
+        if (validationError) {
+            e.preventDefault();        
+            return;
+        }
+
         // Hide the WelcomeMessage, and jump into the TicTacToeBoard
         $("#welcomeMessageContainer").css({
             "display": "none"

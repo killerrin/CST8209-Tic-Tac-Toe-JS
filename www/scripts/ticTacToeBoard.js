@@ -73,7 +73,7 @@ $(document).ready(function () {
         };
 
         var simulateAI = function() {
-            // Delay the AI 500ms to allow viewing of the screen
+            // Delay the AI 500ms to allow viewing of the board
             setTimeout(function() {
                 while(true) {
                     var randomColumn = Math.floor((Math.random() * 3));
