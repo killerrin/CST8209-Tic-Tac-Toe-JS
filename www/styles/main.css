@@ -141,7 +141,7 @@ input {
 #gameBoard-table tr td {
     height: 100px;
     width: calc(500px/3);
-    background: darkslateblue;    
+    background: darkslategray;    
 }
 
 #gameBoard-table tr td a {
@@ -155,7 +155,7 @@ input {
 }
 
 #gameBoard-table tr td a:hover {
-    background: darkred;
+    background: darkolivegreen;
 }
 
 #gameBoard-resultsContainer {
